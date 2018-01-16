@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>开发工具类 - JSON在线工具 --首页</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="keywords" content="JSON,JSON格式化,在线加密,JSON校验,Base64, MD5" />
+<meta name="description" content="JSON格式化, json在线验证" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<meta content="" name="author" />
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+
+<link href="http://css.soaer.com/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="http://css.soaer.com/global/css/index.components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+<link href="http://css.soaer.com/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
+<link href="http://css.soaer.com/layouts/layout4/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+</head>
+
+<body
+    class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo page-sidebar-closed">
+    <div class="page-header navbar navbar-fixed-top">
+        <div class="page-header-inner ">
+            <div class="page-top">
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="dropdown dropdown-user dropdown-dark"><a
+                            href="http://www.soaer.com" class="dropdown-toggle"
+                            data-hover="dropdown"
+                            data-close-others="true"> <span
+                                class="username username-hide-on-mobile">首页</span>
+                                <img alt="" class="img-circle" />
+                        </a></li>
+                        <li class="dropdown dropdown-user dropdown-dark"><a
+                            href="http://tool.soaer.com" class="dropdown-toggle"
+                            data-hover="dropdown"
+                            data-close-others="true"> <span
+                                class="username username-hide-on-mobile">常用工具</span>
+                                <img alt="" class="img-circle" />
+                        </a></li>
+                        <li class="dropdown dropdown-user dropdown-dark"><a
+                            href="http://blog.soaer.com" class="dropdown-toggle"
+                            data-hover="dropdown"
+                            data-close-others="true"> <span
+                                class="username username-hide-on-mobile">个人博客</span>
+                                <img alt="" class="img-circle" />
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <div class="page-content">
+            <div class="col-md-12">
+                <!-- BEGIN Portlet PORTLET-->
+                <div class="portlet box blue">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-gift"></i>工具
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#portlet_json" data-toggle="tab">Json格式化</a></li>
+                            <li><a href="#portlet_md5" data-toggle="tab">MD5</a></li>
+                            <li><a href="#portlet_url_encode" data-toggle="tab">URLEncode</a>
+                            </li>
+                            <li><a href="#portlet_base" data-toggle="tab">Base64</a></li>
+                            <!-- <li><a href="#portlet_timer" data-toggle="tab">时间转化</a></li> -->
+                        </ul>
+                    </div>
+                    
+                </div>
+                <div class="portlet-body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="portlet_json">
+                                <div id="formaterErrorMsg"></div>
+                                <input type="button" class="btn blue btn-block" value="格式化" id="transJson"></input>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="23"
+                                        id="tjson" placeholder="Json格式化"></textarea>
+                            </div>
+                            <div class="tab-pane" id="portlet_md5">
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="6" id="md5Before" placeholder="MD5明文"></textarea>
+                                <input type="button" class="btn blue btn-block" value="加密"
+                                            id="transMd5"></input>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="6"
+                                         id="md5After" placeholder="MD5密文"></textarea>
+                            </div>
+                            <div class="tab-pane" id="portlet_url_encode">
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="6"
+                                         id="encodeBefore" placeholder="转化前"></textarea>
+                                <input type="button" class="btn blue btn-block" value="加密"
+                                            id="transUrlEncode"></input>
+                                <input type="button" class="btn blue btn-block" value="解密"
+                                            id="transUrlDecode"></input>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="6"
+                                         id="encodeAfter" placeholder="转化后"></textarea>
+                            </div>
+                            <div class="tab-pane" id="portlet_base">
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="6"
+                                         id="baseBefore" placeholder="转化前"></textarea>
+                                <input type="button" class="btn blue btn-block" value="加密"
+                                            id="transBase"></input>
+                                <input type="button" class="btn blue btn-block" value="解密"
+                                            id="transBaseDecode"></input>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="6"
+                                         id="baseAfter" placeholder="转化后"></textarea>
+                            </div>
+                            <!-- <div class="tab-pane" id="portlet_timer">
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="8"
+                                        name="cid1" id="cid1" placeholder="时间1"></textarea>
+                                <input type="button" class="btn blue btn-block" value="加密"
+                                            id="transTime"></input>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="8"
+                                        name="cid1" id="cid1" placeholder="时间2"></textarea>
+                            </div> -->
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        www.soaer.com All rights reserved. 京ICP备18002274号-1
+    </div>
+    <!-- BEGIN CORE PLUGINS -->
+
+    <!-- END THEME LAYOUT SCRIPTS -->
+    <script src="http://js.soaer.com/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/global/plugins/jquery-md5/jquery.md5.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/global/plugins/jquery.base64.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/auto-line-number.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/tool.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/validation.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/validation.f.js" type="text/javascript"></script>
+
+</body>
+</html>
