@@ -165,6 +165,6 @@ function ci() {
 
 ci()
 
-$(document).ready(function(){
-	init();
-});
+// $(document).ready(function(){
+// 	init();
+// });
