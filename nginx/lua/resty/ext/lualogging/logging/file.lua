@@ -16,8 +16,8 @@ local debug = ngx.config.debug
 
 
 local function format_ten_minute()
-    local date_pattern = os.date("%Y%m%d%H%M")
-    return math.floor(date_pattern / 10) * 10
+    local date_pattern = os.date("%Y%m%d")
+    return date_pattern
 end
 
 local openFileLogger = function (file_name, log_type)
