@@ -92,7 +92,7 @@ function sl(isLoadMore) {
 
 	$.ajax({
 		type : "POST",
-		url : "http://blog.soaer.com/s",
+		url : "http://blog.soaer.com/skw",
 		data : "keyWord=" + obj + "&pageNumber=" + pageNumber,
 		success : function(msg) {
 			if (msg.code == 1) {
