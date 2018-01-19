@@ -1,11 +1,10 @@
-User-agent: * 
+User-agent: *
+Allow: / 
 Disallow: /glb
-Disallow: /s
 Disallow: /abi
 Disallow: /gcl
 Disallow: /ac
 Disallow: /sm
 Disallow: /vm
-Disallow: /i
 
-Sitemap: http://www.soaer.com/sitemap.xml 
+Sitemap: http://www.soaer.com/sitemap.txt
