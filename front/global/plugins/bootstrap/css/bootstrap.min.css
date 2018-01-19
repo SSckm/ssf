@@ -1326,7 +1326,8 @@ button, input, select, textarea {
 }
 
 a {
-	color: #337ab7;
+	color: #4f5f67;
+	font-size:18px;
 	text-decoration: none
 }
 
