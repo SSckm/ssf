@@ -1528,3 +1528,9 @@ li [class*=" fa-"].icon-large,li [class*=" glyphicon-"].icon-large,li [class*=" 
 	padding-right:20px;
 	text-align:right
 }
+
+.img-auto-width {
+  display: inline-block;
+  height: auto;
+  max-width: 100%;
+}
