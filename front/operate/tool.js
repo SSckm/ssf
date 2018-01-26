@@ -224,6 +224,34 @@ $(document).ready(function(){
 });
 
 
+$(document).ready(function(){
+  $("#aesEncrypt").click(function(){
+    var aesInput = $("#aesBefore").val();
+    var key = $("#aesKey").val();
+    key = CryptoJS.enc.Utf8.parse(key);
+    var encryptedData = CryptoJS.AES.encrypt(aesInput, key, {  
+        mode: CryptoJS.mode.ECB,  
+        padding: CryptoJS.pad.Pkcs7  
+    });  
+    $("#aesAfter").val(encryptedData)
+  });
+});
+
+$(document).ready(function(){
+  $("#aesDecrypt").click(function(){
+    var encryptedData = $("#aesBefore").val();
+    var key = $("#aesKey").val();
+    key = CryptoJS.enc.Utf8.parse(key);
+    var decryptedData = CryptoJS.AES.decrypt(encryptedData, key, {  
+        mode: CryptoJS.mode.ECB,  
+        padding: CryptoJS.pad.Pkcs7  
+    });
+    var decryptedStr = decryptedData.toString(CryptoJS.enc.Utf8);
+    $("#aesAfter").val(decryptedStr)
+  });
+});
+
+
 $("#tjson").setTextareaCount({
   width: "30px",
   bgColor: "#999",
