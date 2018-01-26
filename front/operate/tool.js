@@ -180,10 +180,46 @@ $(document).ready(function(){
 
 //时间转换页面
 $(document).ready(function(){
-  $("#transTime").click(function(){
-    var old = $("#tjson").val();
-    var newV = formatJson(old);
-    $("#tjson").val(newV)
+  $("#transDate").click(function(){
+    var input = $("#dateBefore").val();
+    var inLen = input.length
+    var c = Number(input);
+    if (isNaN(c) ) {
+      //输入的不是时间戳
+      input = input.replace("年", "-")
+      input = input.replace("月", "-")
+      input = input.replace("日", "-")
+      input = input.replace("上午", "")
+      input = input.replace("下午", "")
+      input = input.replace("AM", "")
+      input = input.replace("am", "")
+      input = input.replace("PM", "")
+      input = input.replace("pm", "")
+      input = input.replace("a.m", "")
+      input = input.replace("A.M", "")
+      input = input.replace("p.m", "")
+      input = input.replace("P.M", "")
+      var timestamp2 = Date.parse(new Date(input));
+      $("#dateAfter").html(timestamp2)
+      return
+    }
+    var size = inLen - 13
+    if (size <= 0) {
+      var k = Math.abs(size)
+      k = Math.pow(10,k)
+      c = c * k
+    } else {
+      c = c/10^size
+    }
+    var newDate = new Date();
+    newDate.setTime(c);
+    var gmtDate = newDate.toGMTString()
+    var iosDate = newDate.toISOString()
+    var localDate = newDate.toLocaleString()
+    var standDate = newDate.toString()
+    var res = "时间戳:    " + c + "\r\n\r\n"
+    res = res + "GMTDate(时区 + 8.00):     " + gmtDate + "\r\n\r\n" + "ISO Date(时区 + 8.00):      " + iosDate + "\r\n\r\n" + "本地时间(时区 + 0.00):      " + localDate + "\r\n\r\n" + "标准时间(时区 + 0.00):      " + standDate
+    $("#dateAfter").html(res)
   });
 });
 
