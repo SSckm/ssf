@@ -119,9 +119,11 @@
                             </div>
                             <div class="tab-pane" id="portlet_aes">
                                 <textarea class="form-control todo-taskbody-taskdesc" rows="6"
-                                         id="aesBefore" placeholder="转化前"></textarea>
-                                <textarea class="form-control todo-taskbody-taskdesc" rows="2"
-                                         id="aesKey" placeholder="密钥"></textarea>
+                                         id="aesBefore" placeholder="转化前，加密模式为：AES/CBC/NoPadding"></textarea>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="1"
+                                         id="aesKey" placeholder="请输入密钥"></textarea>
+                                <textarea class="form-control todo-taskbody-taskdesc" rows="1"
+                                         id="aesIv" placeholder="请输入Iv"></textarea>
                                 <input type="button" class="btn blue btn-block" value="加密"
                                             id="aesEncrypt"></input>
                                 <input type="button" class="btn blue btn-block" value="解密"
@@ -149,10 +151,11 @@
     <script src="http://js.soaer.com/global/plugins/jquery.base64.js" type="text/javascript"></script>
     <script src="http://js.soaer.com/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="http://js.soaer.com/operate/auto-line-number.js" type="text/javascript"></script>
-    <script src="http://js.soaer.com/operate/tool.js?v=2.0.0" type="text/javascript"></script>
-    <script src="http://js.soaer.com/operate/aes.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/rollups/aes.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/components/pad-zeropadding.js"></script>
     <script src="http://js.soaer.com/operate/validation.js" type="text/javascript"></script>
     <script src="http://js.soaer.com/operate/validation.f.js" type="text/javascript"></script>
+    <script src="http://js.soaer.com/operate/tool.js?v=2.0.0" type="text/javascript"></script>
 
 </body>
 </html>

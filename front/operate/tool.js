@@ -224,33 +224,81 @@ $(document).ready(function(){
 });
 
 
+// $(document).ready(function(){
+//   $("#aesEncrypt").click(function(){
+//     var aesInput = $("#aesBefore").val();
+//     var key = $("#aesKey").val();
+//     key = CryptoJS.enc.Utf8.parse(key);
+//     var encryptedData = CryptoJS.AES.encrypt(aesInput, key, {  
+//         mode: CryptoJS.mode.ECB,  
+//         padding: CryptoJS.pad.Pkcs7  
+//     });  
+//     $("#aesAfter").val(encryptedData)
+//   });
+// });
+
+// $(document).ready(function(){
+//   $("#aesDecrypt").click(function(){
+//     var encryptedData = $("#aesBefore").val();
+//     var key = $("#aesKey").val();
+//     key = CryptoJS.enc.Utf8.parse(key);
+//     var decryptedData = CryptoJS.AES.decrypt(encryptedData, key, {  
+//         mode: CryptoJS.mode.ECB,  
+//         padding: CryptoJS.pad.Pkcs7  
+//     });
+//     var decryptedStr = decryptedData.toString(CryptoJS.enc.Utf8);
+//     $("#aesAfter").val(decryptedStr)
+//   });
+// });
 $(document).ready(function(){
   $("#aesEncrypt").click(function(){
     var aesInput = $("#aesBefore").val();
     var key = $("#aesKey").val();
+    var iv = $("#aesIv").val();
+    if (key == "" || iv == "") {
+      alert("请输入密钥和IV")
+      return;
+    }
+
+    if (key.length != 16 && iv.length != 16) {
+      alert("密钥和IV的长度必须是16")
+      return;
+    }
     key = CryptoJS.enc.Utf8.parse(key);
-    var encryptedData = CryptoJS.AES.encrypt(aesInput, key, {  
-        mode: CryptoJS.mode.ECB,  
-        padding: CryptoJS.pad.Pkcs7  
-    });  
-    $("#aesAfter").val(encryptedData)
+    iv  = CryptoJS.enc.Utf8.parse(iv);
+    var encrypted = CryptoJS.AES.encrypt(aesInput, key,{
+      iv : iv,
+      mode : CryptoJS.mode.CBC,
+      padding : CryptoJS.pad.ZeroPadding
+    });
+    $("#aesAfter").val(encrypted.toString())
   });
 });
 
 $(document).ready(function(){
   $("#aesDecrypt").click(function(){
-    var encryptedData = $("#aesBefore").val();
+    var aesInput = $("#aesBefore").val();
     var key = $("#aesKey").val();
+    var iv = $("#aesIv").val();
+    if (key == "" || iv == "") {
+      alert("请输入密钥和IV")
+      return;
+    }
+
+    if (key.length != 16 && iv.length != 16) {
+      alert("密钥和IV的长度必须是16")
+      return;
+    }
     key = CryptoJS.enc.Utf8.parse(key);
-    var decryptedData = CryptoJS.AES.decrypt(encryptedData, key, {  
-        mode: CryptoJS.mode.ECB,  
-        padding: CryptoJS.pad.Pkcs7  
+    iv  = CryptoJS.enc.Utf8.parse(iv);
+    var decrypted = CryptoJS.AES.decrypt(aesInput, key,{
+      iv : iv,
+      mode : CryptoJS.mode.CBC,
+      padding : CryptoJS.pad.ZeroPadding
     });
-    var decryptedStr = decryptedData.toString(CryptoJS.enc.Utf8);
-    $("#aesAfter").val(decryptedStr)
+    $("#aesAfter").val(decrypted.toString(CryptoJS.enc.Utf8))
   });
 });
-
 
 $("#tjson").setTextareaCount({
   width: "30px",
