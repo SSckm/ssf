@@ -383,7 +383,7 @@ function changeBa() {
 $(document).ready(function(){
   $("#aesDecrypt").click(function(){
       var key = $("#aesKey").val();
-      if (key.length != 16 || key.length != 24 || key.length != 32) {
+      if (key.length != 16 && key.length != 24 && key.length != 32) {
         alert("请输入正确长度的密钥！支持128bit/192bit/256bit")
         return;
       }
