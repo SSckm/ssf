@@ -223,35 +223,7 @@ $(document).ready(function(){
   });
 });
 
-
-// $(document).ready(function(){
-//   $("#aesEncrypt").click(function(){
-//     var aesInput = $("#aesBefore").val();
-//     var key = $("#aesKey").val();
-//     key = CryptoJS.enc.Utf8.parse(key);
-//     var encryptedData = CryptoJS.AES.encrypt(aesInput, key, {  
-//         mode: CryptoJS.mode.ECB,  
-//         padding: CryptoJS.pad.Pkcs7  
-//     });  
-//     $("#aesAfter").val(encryptedData)
-//   });
-// });
-
-// $(document).ready(function(){
-//   $("#aesDecrypt").click(function(){
-//     var encryptedData = $("#aesBefore").val();
-//     var key = $("#aesKey").val();
-//     key = CryptoJS.enc.Utf8.parse(key);
-//     var decryptedData = CryptoJS.AES.decrypt(encryptedData, key, {  
-//         mode: CryptoJS.mode.ECB,  
-//         padding: CryptoJS.pad.Pkcs7  
-//     });
-//     var decryptedStr = decryptedData.toString(CryptoJS.enc.Utf8);
-//     $("#aesAfter").val(decryptedStr)
-//   });
-// });
-$(document).ready(function(){
-  $("#aesEncrypt").click(function(){
+function AES_CBC_NoPadding_Encrypt() {
     var aesInput = $("#aesBefore").val();
     var key = $("#aesKey").val();
     var iv = $("#aesIv").val();
@@ -260,10 +232,10 @@ $(document).ready(function(){
       return;
     }
 
-    if (key.length != 16 && iv.length != 16) {
-      alert("密钥和IV的长度必须是16")
-      return;
-    }
+    // if (key.length != 16 || iv.length != 16) {
+    //   alert("请输入16位的key和iv")
+    //   return;
+    // }
     key = CryptoJS.enc.Utf8.parse(key);
     iv  = CryptoJS.enc.Utf8.parse(iv);
     var encrypted = CryptoJS.AES.encrypt(aesInput, key,{
@@ -271,13 +243,11 @@ $(document).ready(function(){
       mode : CryptoJS.mode.CBC,
       padding : CryptoJS.pad.ZeroPadding
     });
-    $("#aesAfter").val(encrypted.toString())
-  });
-});
+    $("#aesAfter").val(encrypted)
+}
 
-$(document).ready(function(){
-  $("#aesDecrypt").click(function(){
-    var aesInput = $("#aesBefore").val();
+function AES_CBC_NoPadding_Decrypt() {
+  var aesInput = $("#aesBefore").val();
     var key = $("#aesKey").val();
     var iv = $("#aesIv").val();
     if (key == "" || iv == "") {
@@ -285,10 +255,10 @@ $(document).ready(function(){
       return;
     }
 
-    if (key.length != 16 && iv.length != 16) {
-      alert("密钥和IV的长度必须是16")
-      return;
-    }
+    // if (key.length != 16 || iv.length != 16) {
+    //   alert("请输入16位的key和iv")
+    //   return;
+    // }
     key = CryptoJS.enc.Utf8.parse(key);
     iv  = CryptoJS.enc.Utf8.parse(iv);
     var decrypted = CryptoJS.AES.decrypt(aesInput, key,{
@@ -297,7 +267,125 @@ $(document).ready(function(){
       padding : CryptoJS.pad.ZeroPadding
     });
     $("#aesAfter").val(decrypted.toString(CryptoJS.enc.Utf8))
+}
+
+
+function AES_ECB_PKCS5Padding_Encrypt() {
+  var aesInput = $("#aesBefore").val();
+    var key = $("#aesKey").val();
+    if (key == "") {
+      alert("请输入密钥")
+      return;
+    }
+    // if (key.length != 16) {
+    //   alert("密钥必须是16")
+    //   return;
+    // }
+    key = CryptoJS.enc.Utf8.parse(key);
+    var encrypted = CryptoJS.AES.encrypt(aesInput, key,{
+      mode : CryptoJS.mode.ECB,
+      padding : CryptoJS.pad.Pkcs7
+    });
+    $("#aesAfter").val(encrypted.toString())
+}
+
+function AES_ECB_PKCS5Padding_Decrypt() {
+    var aesInput = $("#aesBefore").val();
+    var key = $("#aesKey").val();
+    if (key == "") {
+      alert("请输入密钥和IV")
+      return;
+    }
+    // if (key.length != 16) {
+    //   alert("请输入16的密钥！")
+    //   return;
+    // }
+    key = CryptoJS.enc.Utf8.parse(key);
+    var decrypted = CryptoJS.AES.decrypt(aesInput, key,{
+      mode : CryptoJS.mode.ECB,
+      padding : CryptoJS.pad.Pkcs7
+    });
+    $("#aesAfter").val(decrypted.toString(CryptoJS.enc.Utf8))
+}
+
+
+function AES_CBC_PKCS7Padding_Encrypt() {
+  var aesInput = $("#aesBefore").val();
+    var key = $("#aesKey").val();
+    var iv = $("#aesIv").val();
+    if (key == "") {
+      alert("请输入密钥")
+      return;
+    }
+    // if (key.length != 16 || iv.length != 16) {
+    //   alert("请输入16位的key和iv")
+    //   return;
+    // }
+    key = CryptoJS.enc.Utf8.parse(key);
+    iv = CryptoJS.enc.Utf8.parse(iv);
+    var encrypted = CryptoJS.AES.encrypt(aesInput, key,{
+      iv: iv,
+      mode: CryptoJS.mode.CBC,
+      padding:CryptoJS.pad.Pkcs7
+    });
+    $("#aesAfter").val(encrypted.toString())
+}
+
+function AES_CBC_PKCS7Padding_Decrypt() {
+    var aesInput = $("#aesBefore").val();
+    var key = $("#aesKey").val();
+    var iv = $("#aesIv").val();
+    if (key == "" || iv == "") {
+      alert("请输入密钥和IV")
+      return;
+    }
+    // if (key.length != 16 || iv.length != 16) {
+    //   alert("请输入16位的key和iv")
+    //   return;
+    // }
+    key = CryptoJS.enc.Utf8.parse(key);
+    iv = CryptoJS.enc.Utf8.parse(iv);
+    var decrypted = CryptoJS.AES.decrypt(aesInput, key,{
+      iv: iv,
+      mode : CryptoJS.mode.CBC,
+      padding : CryptoJS.pad.Pkcs7
+    });
+    $("#aesAfter").val(decrypted.toString(CryptoJS.enc.Utf8))
+}
+
+$(document).ready(function(){
+  $("#aesEncrypt").click(function(){
+      var key = $("#cipherStyle").val()
+      if (key == "1") {
+        AES_CBC_NoPadding_Encrypt();
+      } else if(key == "2") {
+        AES_ECB_PKCS5Padding_Encrypt();
+      } else if(key == "3") {
+        AES_CBC_PKCS7Padding_Encrypt();
+      }
   });
+});
+
+function changeBa() {
+  var key = $("#cipherStyle").val()
+  if (key == 2) {
+    $("#aesIv").hide();
+  } else {
+    $("#aesIv").show();
+  }
+}
+
+$(document).ready(function(){
+  $("#aesDecrypt").click(function(){
+      var key = $("#cipherStyle").val()
+      if (key == "1") {
+        AES_CBC_NoPadding_Decrypt();
+      } else if(key == "2") {
+        AES_ECB_PKCS5Padding_Decrypt();
+      } else if(key == "3") {
+        AES_CBC_PKCS7Padding_Decrypt();
+      }
+  });  
 });
 
 $("#tjson").setTextareaCount({
