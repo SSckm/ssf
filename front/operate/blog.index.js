@@ -21,7 +21,7 @@ function addLiTag(blogArray) {
 				.append("<li class=\"search-item clearfix\">" +
                                             "<div class=\"search-content text-left\">" +
                                                 "<h2 class=\"search-title\">" +
-                                                    "<a href=\"http://blog.soaer.com/"+ uid + "/" + htmlId + ".html" +"\">" + title + "</a>" + 
+                                                    "<a href=\"https://blog.soaer.com/"+ uid + "/" + htmlId + ".html" +"\">" + title + "</a>" + 
                                                 "</h2>" + 
                                                 "<p class=\"search-desc\">" + content + "</p>" +
                                             "</div>" + 
@@ -120,11 +120,11 @@ function initList(msg) {
 		var blogKey = blogArray[i].htmlFileId
 		var content = blogArray[i].content
 		var date = blogArray[i].createDate
-		$('#b'+ (i + 1)).attr('href','http://blog.soaer.com/' + authId + "/" + blogKey + ".html"); 
+		$('#b'+ (i + 1)).attr('href','https://blog.soaer.com/' + authId + "/" + blogKey + ".html"); 
 		$('#b'+ (i + 1)).text(title);
 		$('#p'+ (i + 1)).text(content);
 		$('#d'+ (i + 1)).text(date);
-		$('#img'+ (i + 1)).attr('href','http://blog.soaer.com/' + authId + "/" + blogKey + ".html"); 
+		$('#img'+ (i + 1)).attr('href','https://blog.soaer.com/' + authId + "/" + blogKey + ".html"); 
 	}
 }
 
