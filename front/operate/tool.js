@@ -408,7 +408,7 @@ $("#tjson").setTextareaCount({
 function cctl() {
   $.ajax({
     type : "GET",
-    url : "http://tool.soaer.com/c",
+    url : "https://tool.soaer.com/c",
     success : function(msg) {
     }
   });
