@@ -92,7 +92,7 @@ function sl(isLoadMore) {
 
 	$.ajax({
 		type : "POST",
-		url : "http://blog.soaer.com/skw",
+		url : "https://blog.soaer.com/skw",
 		data : "keyWord=" + obj + "&pageNumber=" + pageNumber,
 		success : function(msg) {
 			if (msg.code == 1) {
@@ -132,7 +132,7 @@ function initList(msg) {
 function init() {
 	$.ajax({
 		type : "POST",
-		url : "http://blog.soaer.com/gbl",
+		url : "https://blog.soaer.com/gbl",
 		data : "pageNumber=1",
 		success : function(msg) {
 			if (msg.code == 1) {
@@ -157,7 +157,7 @@ $(document).ready(function(){
 function ci() {
   $.ajax({
     type : "GET",
-    url : "http://blog.soaer.com/ci",
+    url : "https://blog.soaer.com/ci",
     success : function(msg) {
     }
   });
