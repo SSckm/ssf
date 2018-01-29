@@ -1,4 +1,4 @@
-http://www.soaer.com
-http://blog.soaer.com
-http://blog.soaer.com/sitemap_blog.txt
-http://tool.soaer.com/sitemap_tool.txt
+https://www.soaer.com
+https://blog.soaer.com
+https://blog.soaer.com/sitemap_blog.txt
+https://tool.soaer.com/sitemap_tool.txt
