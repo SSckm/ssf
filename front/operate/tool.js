@@ -398,6 +398,30 @@ $(document).ready(function(){
   });  
 });
 
+$(document).ready(function(){
+  $("#rsaEncrypt").click(function(){
+      var publicKey = $("#rsaPublicKey").val();
+      var cipherText = $("#rsaBefore").val();
+      var encrypt = new JSEncrypt();
+      encrypt.setPublicKey(publicKey);
+      var encrypted = encrypt.encrypt(cipherText);
+      $("#rsaAfter").val(encrypted)
+  });
+});
+
+
+$(document).ready(function(){
+  $("#rsaDecrypt").click(function(){
+      var privateKey = $("#rsaPrivateKey").val();
+      var cipherText = $("#rsaBefore").val();
+      var encrypt = new JSEncrypt();
+      encrypt.setPrivateKey(privateKey);
+      var decrypted = encrypt.decrypt(cipherText);
+      $("#rsaAfter").val(decrypted)
+  });
+});
+
+
 $("#tjson").setTextareaCount({
   width: "30px",
   bgColor: "#999",
