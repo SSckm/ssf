@@ -1843,8 +1843,8 @@ pre code {
 	.col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
 	position: relative;
 	min-height: 1px;
-	padding-left: 15px;
-	padding-right: 15px
+	padding-left: 7px;
+	padding-right: 7px
 }
 
 .col-xs-1 {
