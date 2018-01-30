@@ -1573,13 +1573,13 @@
 	.page-content-wrapperTool {
 		MARGIN-RIGHT: auto; 
 		MARGIN-LEFT: auto;
-		width: 80%
+		width: 70%
 	}
 	.page-content-wrapperTool .page-content {
 		margin-left: 300px;
 		margin-top: 0;
 		min-height: 600px;
-		padding: 0px 0 0 0px
+		padding: 25px 0 0 0px
 	}
 	.page-content-wrapperTool .page-content.no-min-height {
 		min-height: auto
