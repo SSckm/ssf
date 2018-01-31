@@ -84,6 +84,28 @@ local function getBlogQueryTemplate()
 	return Query
 end
 
+local function getBlogWithNoKeyword()
+    local Query = {
+        ['from']: 0,
+        ['size']: 1,
+        ['timeout']: "30s",
+        ['query']: {
+            ['match_all']: {
+                ['boost']: 1
+            }
+        },
+        ['sort']: [
+            {
+                ['createDate']: {
+                    ['order']: "desc"
+                }
+            }
+        ]
+    }
+    return Query
+end
+
 
 Search.getBlogQueryTemplate = getBlogQueryTemplate
+Search.getBlogWithNoKeyword = getBlogWithNoKeyword
 return Search

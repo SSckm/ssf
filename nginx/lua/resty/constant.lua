@@ -2,6 +2,7 @@ local Constant = {}
 
 Constant.KEY_CHECK = "idp_ticket"
 Constant.BLOG_LIST = "blog_list"
+Constant.BLOG_LIST_ALL = "blog_list_all"
 Constant.BLOG_COMMENTS = "blog_comments"
 Constant.CIPHER_KEY = "ddr#$@mvt"
 Constant.COOKIE_KEY = "cid"

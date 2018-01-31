@@ -105,42 +105,82 @@ function sl(isLoadMore) {
 	});
 }
 
+function addNextPage(blogArray) {
+	for (var i = 0; i < blogArray.length; i++) {
+		var date = blogArray[i].createDate
+		var dateStmp = new Date(date);
+		var year = dateStmp.getFullYear();
+		var month = dateStmp.getMonth() + 1;
+		var day = dateStmp.getDate();
+		var title = blogArray[i].title
+		var content = blogArray[i].content
+		var uid = blogArray[i].createUserId
+		var htmlId = blogArray[i].htmlFileId
+		var tagsArray = blogArray[i].tags
+		var body = "<div class=\"timeline-item\">" +
+			"<div class=\"timeline-badge\">" +
+				"<div class=\"timeline-icon\">"+
+					"<i class=\"icon-docs font-red-intense\"></i>"+
+				"</div>"+
+			"</div>"+
+			"<div class=\"timeline-body\">"+
+				"<div class=\"timeline-body-arrow\"></div>"+
+				"<div class=\"timeline-body-head\">"+
+					"<div class=\"timeline-body-head-caption\">"+
+						"<a"+
+							"href=\"https://blog.soaer.com/" + uid + "/" + htmlId + ".html\"><span"+
+							"class=\"timeline-body-alerttitle font-green-haze\">" + title + "</span></a>"+
+					"</div>"+
+				"</div>"+
+				"<div class=\"timeline-body-content\">"+
+					"<span class=\"font-grey-cascade\">"+
+						content + 
+					"</span>"+
+				"</div>"+
+			"</div>"+
+		"</div>"
+		$("#blogNext").append(body);
+	}
+}
 
 
-
-function initList(msg) {
+function parseNextPage() {
 	var blogArray = msg.list
 	if (blogArray == null || blogArray.length == 0) {
 		return;
 	}
-
-	for (var i = 0; i < blogArray.length; i++) {
-		var authId = blogArray[i].createUserId
-		var title = blogArray[i].title
-		var blogKey = blogArray[i].htmlFileId
-		var content = blogArray[i].content
-		var date = blogArray[i].createDate
-		$('#b'+ (i + 1)).attr('href','https://blog.soaer.com/' + authId + "/" + blogKey + ".html"); 
-		$('#b'+ (i + 1)).text(title);
-		$('#p'+ (i + 1)).text(content);
-		$('#d'+ (i + 1)).text(date);
-		$('#img'+ (i + 1)).attr('href','https://blog.soaer.com/' + authId + "/" + blogKey + ".html"); 
+	var totalCount = msg.total
+	var pageNumber = $('#findPageNumber').val();
+	if (pageNumber * 10 < totalCount) {
+		$("#findNextPage").hide()
+		$("#noBlogs").show()
 	}
+	addNextPage(blogArray);
 }
 
 
-function init() {
-	$.ajax({
-		type : "POST",
-		url : "https://blog.soaer.com/gbl",
-		data : "pageNumber=1",
-		success : function(msg) {
-			if (msg.code == 1) {
-				initList(msg);
-			}
+$(document).ready(function(){
+	$("#findNextPage").click(function(){
+		var findPageNumber = $('#findPageNumber').val();
+		if (findPageNumber == "" || findPageNumber == null) {
+			findPageNumber = 1
+			$('#findPageNumber').val("1")
 		}
-	});
-}
+		var j = parseInt(findPageNumber);
+		findPageNumber = j + 1;
+		$('#findPageNumber').val(findPageNumber)
+		$.ajax({
+			type : "POST",
+			url : "https://blog.soaer.com/gnp",
+			data : "pageNumber=" + findPageNumber,
+			success : function(msg) {
+				if (msg.code == 1) {
+					parseNextPage(msg)
+				}
+			}
+		});
+  	});
+});
 
 
 $(document).ready(function(){
@@ -162,9 +202,4 @@ function ci() {
     }
   });
 }
-
 ci()
-
-// $(document).ready(function(){
-// 	init();
-// });
