@@ -10,6 +10,7 @@ local str = require "util.str"
 local Log_type = SysLogConfig.LOG._BLOG_SEARCH
 local cjson = require "cjson"
 local cache = require "common.cache"
+local constant = require "constant"
 
 local result = {}
 local args, err = ngx.req.get_post_args()

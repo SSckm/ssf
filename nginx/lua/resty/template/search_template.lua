@@ -86,21 +86,21 @@ end
 
 local function getBlogWithNoKeyword()
     local Query = {
-        ['from']: 0,
-        ['size']: 1,
-        ['timeout']: "30s",
-        ['query']: {
-            ['match_all']: {
-                ['boost']: 1
+        ['from']= 0,
+        ['size']= 10,
+        ['timeout']= "30s",
+        ['query']= {
+            ['match_all']= {
+                ['boost']= 1
             }
         },
-        ['sort']: [
+        ['sort']= {
             {
-                ['createDate']: {
-                    ['order']: "desc"
+                ['createDate']= {
+                    ['order']= "desc"
                 }
             }
-        ]
+        }
     }
     return Query
 end

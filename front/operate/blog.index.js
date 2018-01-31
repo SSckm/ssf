@@ -127,8 +127,8 @@ function addNextPage(blogArray) {
 				"<div class=\"timeline-body-arrow\"></div>"+
 				"<div class=\"timeline-body-head\">"+
 					"<div class=\"timeline-body-head-caption\">"+
-						"<a"+
-							"href=\"https://blog.soaer.com/" + uid + "/" + htmlId + ".html\"><span"+
+						"<a "+
+							"href=\"https://blog.soaer.com/" + uid + "/" + htmlId + ".html\"><span "+
 							"class=\"timeline-body-alerttitle font-green-haze\">" + title + "</span></a>"+
 					"</div>"+
 				"</div>"+
@@ -144,14 +144,15 @@ function addNextPage(blogArray) {
 }
 
 
-function parseNextPage() {
+function parseNextPage(msg) {
 	var blogArray = msg.list
 	if (blogArray == null || blogArray.length == 0) {
 		return;
 	}
 	var totalCount = msg.total
 	var pageNumber = $('#findPageNumber').val();
-	if (pageNumber * 10 < totalCount) {
+	var j = parseInt(pageNumber);
+	if (j * 10 > totalCount) {
 		$("#findNextPage").hide()
 		$("#noBlogs").show()
 	}
