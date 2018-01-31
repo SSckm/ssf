@@ -64,7 +64,7 @@ function sl(isLoadMore) {
 	if (!isLoadMore) {
 		$('#pageNumber').val("1")
 	}
-	$("#initBlogIndex").hide()
+	
 	var obj = $('#searchWord').val();
 	if (obj == null) {
 		return;
@@ -89,7 +89,7 @@ function sl(isLoadMore) {
 		pageNumber = j + 1;
 		$('#pageNumber').val(pageNumber)
 	}
-
+	$("#initBlogIndex").hide()
 	$.ajax({
 		type : "POST",
 		url : "https://blog.soaer.com/skw",
