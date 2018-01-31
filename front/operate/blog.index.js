@@ -185,6 +185,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
+	$("#searchWord").focus();
 	$("#search").click(function(){
 		sl(false);
   	});
@@ -194,6 +195,13 @@ $(document).ready(function(){
 	}
 	sl(false);
 });
+
+document.onkeyup = function (e) {
+    var code = e.charCode || e.keyCode;
+    if (code == 13) {  
+        sl(false)
+    }  
+}  
 
 function ci() {
   $.ajax({
