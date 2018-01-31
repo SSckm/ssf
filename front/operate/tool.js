@@ -424,8 +424,8 @@ $(document).ready(function(){
 
 $("#tjson").setTextareaCount({
   width: "30px",
-  bgColor: "#999",
-  color: "#FFF",
+  bgColor: "#32c5d2",
+  color: "#32c5d2",
   display: "block"
 });
 
