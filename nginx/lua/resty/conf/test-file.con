@@ -1,0 +1,77 @@
+upstream soaer_com {
+    server 127.0.0.1:9200;
+}
+
+upstream soaer_com_server {
+    server 10.235.137.148:8888;
+}
+
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  soaer.com;
+    location ~* \.(woff2|woff|ttf|eot|svg|css|js|png|jpg|gif)$ {
+      root   /home/sunny/ssf/front;
+    }
+}
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  www.soaer.com;
+    location / {
+      root   /home/sunny/ssf/front/html;
+      index  www.index.html www.index.html;
+    }
+}
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  blog.soaer.com;
+    location / {
+      root   /home/sunny/ssf/front/html;
+      index  www.index.html www.index.html;
+    }
+}
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  tool.soaer.com;
+    location / {
+      root   /home/sunny/ssf/front/html;
+      index  www.index.html www.index.html;
+    }
+}
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  css.soaer.com;
+    location / {
+      root   /home/sunny/ssf/front/html;
+      index  www.index.html www.index.html;
+    }
+}
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  js.soaer.com;
+    location / {
+      root   /home/sunny/ssf/front/html;
+      index  www.index.html www.index.html;
+    }
+}
+
+server {
+    listen 80;
+    charset utf-8;
+    server_name  img.soaer.com;
+    location / {
+      root   /home/sunny/ssf/front/html;
+      index  www.index.html www.index.html;
+    }
+}
