@@ -9,7 +9,7 @@ $(document).ready(function(){
   	}
     $.ajax({
 		type : "POST",
-		url : "http://www.soaer.com/loginFilter",
+		url : "https://www.soaer.com/loginFilter",
 		data : "email=" + email + "&password=" + password,
 		success : function(msg) {
 			if (msg.code == 1) {
