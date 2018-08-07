@@ -135,7 +135,7 @@ $(document).ready(function(){
     if (old == "" || old == null) {
     	return;
     }
-    alert(old)
+    // alert(old)
     var after = encodeURIComponent(old);
     $("#encodeAfter").val(after)
   });
