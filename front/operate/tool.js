@@ -135,7 +135,8 @@ $(document).ready(function(){
     if (old == "" || old == null) {
     	return;
     }
-    var after = encodeURI(old);
+    alert(old)
+    var after = encodeURIComponent(old);
     $("#encodeAfter").val(after)
   });
 });
@@ -146,7 +147,7 @@ $(document).ready(function(){
     if (old == "" || old == null) {
     	return;
     }
-    var after = decodeURI(old);
+    var after = decodeURIComponent(old);
     $("#encodeAfter").val(after)
   });
 });
