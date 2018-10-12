@@ -95,6 +95,28 @@
                                             <div class="timeline-body-head">
                                                 <div class="timeline-body-head-caption">
                                                     <a
+                                                        href="https://blog.soaer.com/1/0e2600aee51145c2bcd8ac0a6d93be7c.html"><span
+                                                        class="timeline-body-alerttitle font-green-haze">MQTT(mosquitto)单向/双向验证(TLS)（Java版）</span></a>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-body-content">
+                                                <span class="font-grey-cascade">
+                                                    本篇文章主要讲解MQTT单向和双向验证Java实现,在实现过程中也走了很多弯路，所以记录下来供以后查阅。1.本篇文章使用的是公共的Broker,其中CA证书也是从test.mosquitto.org下载的，所以单向认证只需要mosquitto.org.crt一个CA证书就可以了。双向验证需要自己生成证书请求文件然后让后在http://test.mosquitto.org/ssl/上申请签名，就可以自动下载了。2.如果自己生成证书，那么需要生成ca证书，服务器证书，客户端证书，三种证书（可以用OpenSSL生成）也比较简单。
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge">
+                                            <div class="timeline-icon">
+                                                <i class="icon-docs font-red-intense"></i>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body">
+                                            <div class="timeline-body-arrow"></div>
+                                            <div class="timeline-body-head">
+                                                <div class="timeline-body-head-caption">
+                                                    <a
                                                         href="https://blog.soaer.com/1/ed5f23ad918b4bbbb8608eb6cd817ca0.html"><span
                                                         class="timeline-body-alerttitle font-green-haze">OpenResty  入门开发篇（四）-火焰图优化性能</span></a>
                                                 </div>
@@ -285,29 +307,6 @@
                                             <div class="timeline-body-content">
                                                 <span class="font-grey-cascade">
                                                     由于maven的常用命令很多，有时候也记不住，好记性不如烂笔头吧，以后会写关于maven的一系列文章，希望对大家有帮助
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="timeline-item">
-                                        <div class="timeline-badge">
-                                            <div class="timeline-icon">
-                                                <i class="icon-docs font-red-intense"></i>
-                                            </div>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <div class="timeline-body-arrow"></div>
-                                            <div class="timeline-body-head">
-                                                <div class="timeline-body-head-caption">
-                                                    <a
-                                                        href="https://blog.soaer.com/1/1ef8cacbd4c84fc1a04b48249cdcc4fd.html"><span
-                                                        class="timeline-body-alerttitle font-green-haze">OpenResty入门开发篇(四)-动态upstream</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="timeline-body-content">
-                                                <span class="font-grey-cascade">
-                                                    在nginx中使用upstream模块可以使用长链接，但是如果直接配置upstream的话IP地址和端口都是写死的，但是我们的后台服务器都是不同的域名，这样就不能用写死IP这种方式来实现长链接了
                                                 </span>
                                             </div>
                                         </div>
